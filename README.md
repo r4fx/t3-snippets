@@ -1,2 +1,3 @@
-# t3-snippets
-TypoScript and Fluid snippets for TYPO3 CMS
+# TypoScript and Fluid snippets for TYPO3 CMS
+
+https://r4fx.github.io/t3-snippets/
