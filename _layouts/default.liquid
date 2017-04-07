@@ -1,0 +1,18 @@
+---
+layout: compress
+---
+
+<!doctype html>
+<html lang="{% if page.language %}{{ page.language }}{% else %}{{ site.language }}{% endif %}" xmlns:cc="http://creativecommons.org/ns#">
+
+  {% include head.liquid %}
+
+  <body itemscope itemtype="https://schema.org/WebPage">
+
+    {% include navbar.liquid %}
+
+      {{ content }}
+
+    {% include scripts.liquid %}
+  </body>
+</html>

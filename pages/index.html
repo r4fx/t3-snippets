@@ -1,0 +1,99 @@
+---
+layout: list
+#title: "TYPO3 snippets"
+permalink: /
+
+# if paginator.page > 1
+robots: "noindex, follow"
+---
+
+<section class="clearfix">
+
+  {% for snippet in site.snippets reversed %}
+
+    <article class="postPreview clearfix" itemscope itemtype="https://schema.org/Article">
+      <div class="postPreview-meta">
+        <time itemprop="datePublished" datetime="{{ snippet.date | date_to_xmlschema }}"{% if snippet.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ snippet.last_modified_at | date: site.date_format }}"{% endif %}>{{ snippet.date | date: site.date_format }}</time>
+        <span class="middotDivider"></span>
+
+        {% if snippet.author %}
+          <span>{{ snippet.author }}</span> <span class="middotDivider"></span>
+        {% endif %}
+
+        {% if snippet.tags %}
+          <ul class="list-inline list-inline--coma">
+            {% for tag in snippet.tags %}
+            <li><a href="{{ site.baseurl }}{{ site.tag_page }}?tag={{ tag }}" class="post-tag">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+
+      <h2 class="postPreview-title" itemprop="headline"><a itemprop="url" href="{{ site.baseurl }}{{ snippet.url }}">{{ snippet.title | smartify | strip_html | strip_newlines | escape_once }}</a></h2>
+      {% if snippet.description and snippet.description != empty %}
+        <p class="postPreview-excerpt" itemprop="description">{{ snippet.description | markdownify | strip_html | strip_newlines | truncate: 160 | escape_once }}</p>
+      {% endif %}
+    </article>
+
+  {% endfor %}
+
+  {% for snippet in paginator.snippets %}
+
+    <article class="postPreview clearfix" itemscope itemtype="https://schema.org/Article">
+      <div class="postPreview-meta">
+        <time itemprop="datePublished" datetime="{{ snippet.date | date_to_xmlschema }}"{% if snippet.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ snippet.last_modified_at | date: site.date_format }}"{% endif %}>{{ snippet.date | date: site.date_format }}</time>
+      </div>
+
+      <a itemprop="url" href="{{ site.baseurl }}{{ snippet.url }}">
+        <div class="clearfix">
+          <h2 class="postPreview-title" itemprop="headline">{{ snippet.title | smartify | strip_html | strip_newlines | escape_once }}</h2>
+
+          {% if snippet.description and snippet.description != empty %}
+          <p class="postPreview-excerpt" itemprop="description">{{ snippet.description | markdownify | strip_html | strip_newlines | truncate: 160 | escape_once }}</p>
+          {% endif %}
+        </div>
+      </a>
+    </article>
+
+  {% endfor %}
+
+
+  {% for post in paginator.posts %}
+
+    <article class="postPreview clearfix" itemscope itemtype="https://schema.org/Article">
+      <div class="postPreview-meta">
+        <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}"{% if post.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ post.last_modified_at | date: site.date_format }}"{% endif %}>{{ post.date | date: site.date_format }}</time>
+      </div>
+
+      <a itemprop="url" href="{{ site.baseurl }}{{ post.url | replace:'/index.html','/' }}">
+        <div class="clearfix">
+          <h2 class="postPreview-title" itemprop="headline">{{ post.title | smartify | strip_html | strip_newlines | escape_once }}</h2>
+          {% if post.excerpt and post.excerpt != empty %}
+            <p class="postPreview-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | strip_newlines | truncate: 160 | escape_once }}</p>
+          {% endif %}
+        </div>
+      </a>
+    </article>
+  {% endfor %}
+
+</section>
+
+<!-- Pager -->
+
+{% if paginator.total_pages > 1 %}
+  <nav class="clearfix" itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <ul class="pager">
+      {% if paginator.previous_page %}
+        <li class="previous">
+          <a itemprop="url" href="{{ paginator.previous_page_path | replace:'//','/' | replace:'/index.html','/' }}"><i class="fa fa-angle-left"></i> <span itemprop="name">Previous</span></a>
+        </li>
+      {% endif %}
+
+      {% if paginator.next_page %}
+        <li class="next">
+          <a itemprop="url" href="{{ paginator.next_page_path | replace:'//','/' | replace:'/index.html','/' }}"><span itemprop="name">Next</span> <i class="fa fa-angle-right"></i></a>
+        </li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}

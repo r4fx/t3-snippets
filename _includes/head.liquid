@@ -1,0 +1,104 @@
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+
+  {% include metadata.liquid %}
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>{% if page_title %}{{ page_title }} &mdash; {{ site_title }}{% else %}{{ site_title }}{% endif %}</title>
+  <meta name="title" content="{% if page_title %}{{ page_title }}{% else %}{{ site_title }}{% endif %}">
+  <meta name="description" content="{{ page_description }}">
+
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="{% if page_title %}{{ page_title }}{% else %}{{ site_title }}{% endif %}">
+  <meta property="og:site_title" content="{{ site_title }}">
+  <meta property="og:url" content="{{ page_url }}">
+  <meta property="og:description" content="{{ page_description }}">
+
+  {% if page_image and page.date %}
+    <meta property="og:image" content="{{ page_image }}">
+  {% else %}
+    <meta property="og:image" content="{{ site_logo }}">
+  {% endif %}
+
+  <meta property="og:type" content="{% if page.layout == 'post' and page.date %}article{% else %}website{% endif %}">
+
+  {% if site.locale %}
+    <meta property="og:locale" content="{{ site.locale }}">
+  {% endif %}
+
+  {% if site.facebook %}
+    {% if site.facebook.admins %}
+      <meta property="fb:admins" content="{{ site.facebook.admins }}">
+    {% endif %}
+
+    {% if site.facebook.app_id %}
+      <meta property="fb:app_id" content="{{ site.facebook.app_id }}">
+    {% endif %}
+
+    {% if page.date %}
+      {% if page.author.facebook %}
+        <meta property="article:author" content="https://www.facebook.com/{{ page.author.facebook }}">
+      {% endif %}
+
+      {% if site.author.facebook %}
+        {% unless page.author %}
+          <meta property="article:author" content="https://www.facebook.com/{{ site.author.facebook }}">
+        {% endunless %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  {% if page.layout == 'post' and page.date %}
+    <meta property="article:modified_time" content="{{ date_modified }}">
+    <meta property="article:published_time" content="{{ date_published }}">
+
+    {% for post in site.related_posts limit:3 %}
+      <meta property="og:see_also" content="{{ post.url | replace:'/index.html','/' | prepend: site_url }}">
+    {% endfor %}
+  {% endif %}
+
+  <!-- Twitter card property -->
+  {% if site.twitter %}
+    {% if page_image and page.date %}
+      <meta name="twitter:card" content="summary_large_image">
+    {% else %}
+      <meta name="twitter:card" content="summary">
+    {% endif %}
+
+    <meta name="twitter:site" content="@{{ site.twitter.username | replace:'@','' }}">
+
+    {% if page.layout == 'post' and page.date %}
+      {% if page.author.twitter %}
+        <meta name="twitter:creator" content="@{{ page.author.twitter | replace:'@','' }}">
+      {% endif %}
+
+      {% if site.author.twitter %}
+        {% unless page.author %}
+          <meta name="twitter:creator" content="@{{ site.author.twitter | replace:'@','' }}">
+        {% endunless %}
+      {% endif %}
+    {% endif %}
+  {% endif %}
+
+  <!-- SEO -->
+  {% if page.robots %}
+    {% unless paginator.page %}
+      <meta name="robots" content="{{ page.robots }}">
+    {% endunless %}
+    {% if paginator.page > 1 %}
+      <meta name="robots" content="{{ page.robots }}">
+    {% endif %}
+  {% endif %}
+
+  <link rel="canonical" href="{{ page_url }}">
+
+  {% if paginator.previous_page %}
+    <link rel="prev" href="{{ paginator.previous_page_path | replace:'/index.html','/' | prepend: site_url }}">
+  {% endif %}
+
+  {% if paginator.next_page %}
+    <link rel="next" href="{{ paginator.next_page_path | replace:'/index.html','/' | prepend: site_url }}">
+  {% endif %}
+
+  {% include head_links.liquid %}
+</head>

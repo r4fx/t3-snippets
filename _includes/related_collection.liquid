@@ -1,0 +1,95 @@
+{% assign pageTagsNumber = page.tags | size %}
+{% assign related        = "" | split: "/" %} <!-- create empty array -->
+{% assign relatedCount   = 0 %}
+{% assign maxRelated     = 4 %} <!-- maximum number of related items -->
+{% assign minTagMatch    = 2 %} <!-- minimum number of tag match to be a related -->
+
+{% if minTagMatch > pageTagsNumber %}
+    {% assign minTagMatch = pageTagsNumber %}
+{% endif %}
+
+{% assign matchedComplete = false %} <!-- flag -->
+
+<!--
+numberOfTag to match to be in the related list,
+Will try to match all page tags, then page tags size - 1, -2, until reaching minTagMatch
+-->
+
+{% for numberOfTag in (minTagMatch...pageTagsNumber) reversed %}
+
+  {% for item in site.snippets %}
+    {% if related contains item or item.title == page.title %}
+        <!--
+        Don't scan an item that is already in related
+        Don't scan an item if we are on his page
+        -->
+        {% continue %} <!-- go to next item -->
+    {% endif %}
+
+    {% assign itemTagsNumber = item.tags | size %}
+    {% if itemTagsNumber < numberOfTag %}
+      <!-- Not enough tags {{ itemTagsNumber }} -->
+      {% continue %} <!-- go to next item -->
+    {% endif %}
+
+    {% assign matchingTags = 0 %} <!-- tag match counter -->
+    {% for tag in page.tags %}
+      <!-- Comparing page tag "{{ tag }}" to {{ item.tags | join: ", " }} -->
+      {% if item.tags contains tag %}
+        <!-- one matching tag increment matchingTags counter-->
+        {% assign matchingTags = matchingTags | plus: 1 %}
+
+        <!-- We have a match and {{ matchingTags }} matching tags total -->
+        {% if matchingTags >= numberOfTag %}
+            <!-- we have enough matching tag, this is a related item -->
+            {% capture html %}
+                <div class="relatedPosts-item">
+                    <h3 class="relatedPosts-itemTitle"><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></h3>
+                    <p class="relatedPosts-itemExcerpt">{{ item.description }}</p>
+                    <div class="relatedPosts-itemMeta">
+                        <time itemprop="datePublished" datetime="{{ item.date | date_to_xmlschema }}"{% if item.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ item.last_modified_at | date: site.date_format }}"{% endif %}>{{ item.date | date: site.date_format }}</time>
+                        <span class="middotDivider"></span>
+
+                        {% assign pageTagsNumber = item.tags | size %}
+                        <ul class="list-inline list-inline--coma" data-toggle="tooltip" data-placement="top" title="has {{ pageTagsNumber }} tags - match on {{ matchingTags }} tags">
+                            {% for tag in item.tags %}
+                            <li><a href="{{ site.baseurl }}{{ site.tag_page }}?tag={{ tag }}" class="post-tag">{{ tag }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endcapture %}
+
+            {% assign related = related | push: html %}
+            {% assign relatedCount = related | size %}
+            {% if relatedCount >= maxRelated %}
+                <!-- if we have all our related set the matchedComplete flag to true -->
+                {% assign matchedComplete = true %}
+            {% endif %}
+            {% break %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+
+    {% if matchedComplete == true %}
+        <!-- matchedComplete breaking item loop! -->
+        {% break %}
+    {% endif %}
+
+  {% endfor %}
+
+  {% if matchedComplete == true %}
+      <!-- matchedComplete breaking numberOfTag loop! -->
+      {% break %}
+  {% endif %}
+
+{% endfor %}
+
+{% if relatedCount > 0 %}
+    <!-- print related items -->
+
+    {% for item in related %}
+        {{ item }}
+    {% endfor %}
+
+{% endif %}

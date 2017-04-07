@@ -1,0 +1,96 @@
+---
+layout: default
+---
+
+{% include metadata.liquid %}
+
+<main role="main" itemprop="mainContentOfPage">
+    <article class="postArticle" itemscope itemtype="https://schema.org/Article">
+        <header class="postHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="postHeader-meta">
+                            <time itemprop="datePublished" datetime="{{ date_published }}"{% if page.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ page.last_modified_at | date: site.date_format }}"{% endif %}>{{ page.date | date: site.date_format }}</time>
+                            <span class="middotDivider"></span>
+
+                            {% if page.author %}
+                                <span>{{ page.author }}</span> <span class="middotDivider"></span>
+                            {% endif %}
+
+                            {% if page.tags %}
+                                <ul class="list-inline list-inline--coma">
+                                    {% for tag in page.tags %}
+                                    <li><a href="{{ site.baseurl }}{{ site.tag_page }}?tag={{ tag }}" class="post-tag">{{ tag }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+
+                        <h1 class="postHeader-title" itemprop="headline">{{ page_title }}</h1>
+                        <p class="postPreview-excerpt">{{ page.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Snippet body -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="postBody snippetBody" itemprop="articleBody">
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Snippet footer -->
+        <footer class="postFooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Share buttons -->
+                        {% include social_share.liquid %}
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <div class="postFooter-metaAcknowledgments" about="{{ page_url }}">
+                            <i class="fa fa-pencil"></i> <a href="{{ site.github.repository_url }}/edit/master/{{ page.path }}" target="_blank">Edit this page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </article>
+</main>
+
+<section class="container postFooter-section">
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- comments -->
+            {% if site.disqus_shortname and page.comments != 'false' %}
+                {% if jekyll.environment == "production" %}
+                        {% include disqus_thread.liquid %}
+                {% endif %}
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+
+<!-- Related posts -->
+
+<aside class="relatedPosts">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="relatedPosts-heading">RELATED BY TAGS</h3>
+
+                {% include related_collection.liquid %}
+            </div>
+        </div>
+    </div>
+</aside>
+
+{% include footer.liquid %}

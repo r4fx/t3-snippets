@@ -1,0 +1,71 @@
+baseurl:    /t3-snippets
+title:      TYPO3 snippets
+date_format: "%d %B, %Y"
+
+defaults:
+  # snippets collection
+  - scope:
+      path: "_snippets" # an empty string here means all files in the project
+      type: "snippets"
+    values:
+      layout: "snippet"
+      permalink: /:path/
+      comments: "false"
+  # pages
+  - scope:
+      path: "pages"
+      type: "pages"
+    values:
+      layout: "page"
+      permalink: /:basename/
+
+tag_page: '/tags/'
+#category_page: '/categories/'
+
+google_cse_id: 011171859117322085253:u4kqdfrhbsg
+google_api_key:
+google_analytics_id: UA-xxx
+language: en
+
+nav:
+  - title: Snippets
+    url: "/"
+  - title: Tags
+    url: "/tags/"
+  - title: About
+    url: "/about/"
+  - title: Search
+    url: "/search/"
+
+include:
+  - "_assets"
+
+paginate_path: "/pages/page:num/"
+paginate: 1
+
+collections:
+  snippets:
+    output: true
+
+author:
+  name: T3go
+  github: r4fx
+  uri: https://t3go.pl/
+
+gems:
+  - jemoji
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-sitemap
+
+compress_html:
+  clippings: all
+  comments: all
+  ignore:
+    envs: development
+
+sass:
+  sass_dir: _assets/styles/scss
+  style: compressed
