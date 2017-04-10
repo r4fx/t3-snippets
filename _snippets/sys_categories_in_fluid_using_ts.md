@@ -6,6 +6,8 @@ date: 2016-11-16
 author: Rafał Brzeski
 ---
 
+### TypoScript
+
 ~~~ js
 lib.category = COA
 lib.category {
@@ -42,6 +44,8 @@ lib.category {
     }
 }
 ~~~
+
+### Fluid
 
 ~~~ xml
 <f:cObject typoscriptObjectPath="lib.category" data="{cat:'28', pid:'110'}"/>
