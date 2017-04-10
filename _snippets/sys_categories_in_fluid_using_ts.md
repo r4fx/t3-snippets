@@ -7,12 +7,6 @@ author: Rafał Brzeski
 ---
 
 ~~~ js
-//===================================================
-// LIST CATEGORIES
-//
-// FLUID: <f:cObject typoscriptObjectPath="lib.category" data="{cat:'28', pid:'110'}"/>
-//===================================================
- 
 lib.category = COA
 lib.category {
     // Debug
@@ -47,4 +41,8 @@ lib.category {
         }
     }
 }
+~~~
+
+~~~ xml
+<f:cObject typoscriptObjectPath="lib.category" data="{cat:'28', pid:'110'}"/>
 ~~~
