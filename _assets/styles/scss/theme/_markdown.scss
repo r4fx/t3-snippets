@@ -36,6 +36,14 @@
       margin-bottom: 0 !important;
     }
 
+    > h3 {
+      margin: 40px 0 20px;
+
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+
     > h4:first-child {
       margin-top: 3px !important;
     }
@@ -45,14 +53,6 @@
 
       @media (max-width: 767px) {
         margin-top: 13px !important;
-      }
-    }
-
-    > h3 {
-      margin: 40px 0 20px;
-
-      &:first-child{
-        margin-top: 0;
       }
     }
 
