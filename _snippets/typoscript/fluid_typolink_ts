@@ -35,6 +35,9 @@ lib.fluid-typolink {
 ~~~
 
 ### Fluid
+
+~~~ xml
 <a {f:cObject(typoscriptObjectPath: 'lib.fluid-typolink', data: '{banner.link}' )}>
    Link
 </a>
+~~~
