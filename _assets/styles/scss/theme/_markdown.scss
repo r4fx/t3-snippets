@@ -48,6 +48,14 @@
       }
     }
 
+    > h3 {
+      margin: 40px 0 20px;
+
+      &:first-child{
+        margin-top: 0;
+      }
+    }
+
     > h4:first-child + p {
       margin-top: 29px !important;
 
