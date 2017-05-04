@@ -10,6 +10,7 @@ author: Rafał Brzeski
 //===================================================
 // Get image from Page resources tab
 //===================================================
+
 lib.resourceImage = FILES
 lib.resourceImage {
  
