@@ -82,4 +82,9 @@ author: Rafał Brzeski
 [globalString = IENV:REMOTE_ADDR = 82.177.87.*]
   //... 
 [global]
+
+// If specified BE layout is set
+[globalVar = TSFE:page|backend_layout = 4]
+ page.bodyTagAdd = class="example_class"
+[end]
 ~~~
