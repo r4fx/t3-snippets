@@ -9,8 +9,6 @@ author: Rafał Brzeski
 ### TypoScript
 
 ~~~ js
-// Replace _ to real space
-
 lib.replaceLineSpace = TEXT
 lib.replaceLineSpace {
     current = 1
@@ -18,21 +16,19 @@ lib.replaceLineSpace {
     required = 1
  
     replacement {
-        // equivalent to former useSpacesInLinkText = 0; remove using > to disable it
+        // Use spaces in link text (Replace _ to real space)
         10 {
             search = _
             replace.char = 32
         }
  
-        // equivalent to former stripFileExtensionFromLinkText = 0; move "_20" to "20" to enable it. Disabled by default.
-        20 {
+        // strip file extension from link text, move "_20" to "20" to enable it.
+        _20 {
             search = /(.*)(\..*)/
             replace = \1
             useRegExp = 1
         }
     }
- 
-    #wrap = <span class="real-name">|</span>
 }
 ~~~
 
