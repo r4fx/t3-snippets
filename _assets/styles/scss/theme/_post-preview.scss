@@ -4,9 +4,13 @@
 
 .postPreview {
   padding: 25px 0 30px;
-  width: calc(50% - 50px);
+  width: 100%;
   margin: 0 25px;
   border-bottom: 1px solid rgba(0,0,0,.1);
+
+  @media (min-width: 768px) {
+    width: calc(50% - 50px);
+  }
 
   &:first-child {
     padding-top: 0;
@@ -20,8 +24,6 @@
 .postPreview-meta {
   font-family: $font-family-base;
   font-size: 12px;
-  // line-height: 1.4;
-  // letter-spacing: 0;
   color: rgba(0,0,0,.44);
 
   @media (min-width: 768px) {
