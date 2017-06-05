@@ -1,7 +1,7 @@
 ---
 title: Fluid typoscript object, inline
 description: notacja inline typoscriptObjectPath
-tags: [fluid, typoscriptObjectPath]
+tags: [fluid, typoscriptObjectPath, data]
 date: 2016-01-22
 author: Rafał Brzeski
 ---
