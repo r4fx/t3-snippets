@@ -1,7 +1,7 @@
 ---
 title: Zmiana _ na normalna spację
 description: Wykorzystanie funkcji TS replace w szablonie fluid
-tags: [replace, search, useRegExp, fluid, current]
+tags: [replace, search, useRegExp, typoscriptObjectPath, current]
 date: 2016-01-21
 author: Rafał Brzeski
 ---
