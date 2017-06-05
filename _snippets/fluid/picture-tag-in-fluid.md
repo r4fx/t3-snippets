@@ -1,6 +1,6 @@
 ---
-title: How to use 'picture' tag in fluid
-description: HTML5 Picture tag in Fluid, example based on plugin News
+title: How to use 'picture' tag in Fluid
+description: HTML5 Picture tag in Fluid templates, example based on extension News
 tags: [fluid, picture, image]
 date: 2017-06-05
 author: Rafał Brzeski
