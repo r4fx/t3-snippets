@@ -7,11 +7,11 @@ permalink: /
 robots: "noindex, follow"
 ---
 
-<section class="clearfix">
+<section class="flex-box">
 
   {% for snippet in site.snippets reversed %}
 
-    <article class="postPreview clearfix" itemscope itemtype="https://schema.org/Article">
+    <article class="postPreview" itemscope itemtype="https://schema.org/Article">
       <div class="postPreview-meta">
         <time itemprop="datePublished" datetime="{{ snippet.date | date_to_xmlschema }}"{% if snippet.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ snippet.last_modified_at | date: site.date_format }}"{% endif %}>{{ snippet.date | date: site.date_format }}</time>
         <span class="middotDivider"></span>
@@ -39,7 +39,7 @@ robots: "noindex, follow"
 
   {% for snippet in paginator.snippets %}
 
-    <article class="postPreview clearfix" itemscope itemtype="https://schema.org/Article">
+    <article class="postPreview" itemscope itemtype="https://schema.org/Article">
       <div class="postPreview-meta">
         <time itemprop="datePublished" datetime="{{ snippet.date | date_to_xmlschema }}"{% if snippet.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ snippet.last_modified_at | date: site.date_format }}"{% endif %}>{{ snippet.date | date: site.date_format }}</time>
       </div>
@@ -60,7 +60,7 @@ robots: "noindex, follow"
 
   {% for post in paginator.posts %}
 
-    <article class="postPreview clearfix" itemscope itemtype="https://schema.org/Article">
+    <article class="postPreview" itemscope itemtype="https://schema.org/Article">
       <div class="postPreview-meta">
         <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}"{% if post.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ post.last_modified_at | date: site.date_format }}"{% endif %}>{{ post.date | date: site.date_format }}</time>
       </div>

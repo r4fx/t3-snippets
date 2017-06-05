@@ -2,6 +2,13 @@
 // Add custom styles
 //
 
+.flex-box{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
 .list-inline {
   display: inline-block;
   margin-left: 0;
