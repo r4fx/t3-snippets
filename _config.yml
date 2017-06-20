@@ -50,7 +50,7 @@ author:
   github: r4fx
   uri: https://t3go.pl/
 
-gems:
+plugins:
   - jemoji
   - jekyll-feed
   - jekyll-gist
@@ -61,8 +61,6 @@ gems:
 compress_html:
   clippings: all
   comments: all
-  ignore:
-    envs: development
 
 sass:
   sass_dir: _assets/styles/scss
