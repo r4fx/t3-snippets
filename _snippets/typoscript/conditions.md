@@ -87,4 +87,9 @@ author: Rafał Brzeski
 [globalVar = TSFE:page|backend_layout = 4]
  page.bodyTagAdd = class="example_class"
 [end]
+
+// If specified page type is set
+[globalVar = TSFE:page|doktype = 104]
+    settings.bodyClass = page-404
+[end]
 ~~~
