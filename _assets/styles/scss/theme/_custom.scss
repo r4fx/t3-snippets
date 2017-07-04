@@ -19,12 +19,15 @@
 }
 
 .list-inline--coma{
-  padding-right: 5px;
+  > li:not(:last-child){
+    padding-right: 5px;
+  }
   
   > li:not(:last-child):after{
     content: ',';
   }
 }
+
 //
 // Header link placement and hover behavior
 //
