@@ -48,7 +48,7 @@ author:
   github: r4fx
   uri: https://t3go.pl/
 
-plugins:
+gems:
   - jemoji
   - jekyll-feed
   - jekyll-gist

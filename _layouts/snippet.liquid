@@ -10,7 +10,7 @@ layout: default
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="postHeader-meta">
+                        <div class="postHeader-meta nocontent">
                             <time itemprop="datePublished" datetime="{{ date_published }}"{% if page.last_modified_at %} data-toggle="tooltip" data-placement="top" title="Updated {{ page.last_modified_at | date: site.date_format }}"{% endif %}>{{ page.date | date: site.date_format }}</time>
                             <span class="middotDivider"></span>
 
@@ -46,7 +46,7 @@ layout: default
         </div>
 
         <!-- Snippet footer -->
-        <footer class="postFooter">
+        <footer class="postFooter nocontent">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -81,7 +81,7 @@ layout: default
 
 <!-- Related posts -->
 
-<aside class="relatedPosts">
+<aside class="relatedPosts nocontent">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
