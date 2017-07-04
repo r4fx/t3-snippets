@@ -81,7 +81,7 @@ layout: compress
       .gs-webResult .gs-visibleUrl-short,
       .gs-imageResult .gs-visibleUrl,
       .gs-imageResult .gs-visibleUrl-short {
-        font-weight: normal;
+        font-weight: normal !important;
       }
 
       .cse .gsc-control-cse,
@@ -123,13 +123,21 @@ layout: compress
       .gs-result .gs-title,
       .gs-result .gs-title * {
         height: auto !important;
-        font-size: 18px !important;
+        font-size: 21px !important;
+      }
+
+      .gs-result .gs-title {
+        font-weight: 600;
+      }
+
+      .gs-result .gs-title b{
+        color: black;
       }
 
       .gs-result .gs-visibleUrl {
         margin: 3px 0 3px !important;
-        padding-bottom: 0 !important;
-        font-size: 16px !important;
+        font-size: 14px !important;
+        color: rgba(0,0,0,0.44) !important;
       }
 
       .gs-snippet {
