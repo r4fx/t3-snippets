@@ -27,14 +27,15 @@ permalink: /
       {% endif %}
   
       {% if snippet.tags %}
-      <ul class="list-inline list-inline--coma">
-        {% for tag in snippet.tags %}
-        <li><a href="{{ site.baseurl }}{{ site.tag_page }}?tag={{ tag }}" class="post-tag">{{ tag }}</a></li>
-        {% endfor %}
-      </ul>
+      <div class="postPreview-meta">
+        <ul class="list-inline list-inline--coma">
+          {% for tag in snippet.tags %}
+          <li><a href="{{ site.baseurl }}{{ site.tag_page }}?tag={{ tag }}" class="post-tag">{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
       {% endif %}
     </article>
-
   {% endfor %}
 
   {% for snippet in paginator.snippets %}
