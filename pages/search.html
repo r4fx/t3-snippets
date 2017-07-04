@@ -11,11 +11,9 @@ sitemap: false
   {% assign site_title = site_title | smartify | strip_html | strip_newlines | escape_once %}
 {% endif %}
 
-<h3 class="searchPage-heading"><i class="fa fa-search"></i> Search {{ site_title }}</h3>
-
 <div class="searchPage-body" id="cse-search">
   <!-- Google CSE search box begins  -->
-  <form class="searchPage-form" id="cse_{{ site.google_cse_id }}" action="{{ site.baseurl }}/search/" role="search">
+  <!--<form class="searchPage-form" id="cse_{{ site.google_cse_id }}" action="{{ site.baseurl }}/search/" role="search">
     <div class="row">
       <div class="col-xs-12">
         <div class="input-group input-group-lg">
@@ -26,7 +24,7 @@ sitemap: false
         </div>
       </div>
     </div>
-  </form>
+  </form>-->
 
   <script>
       (function() {
