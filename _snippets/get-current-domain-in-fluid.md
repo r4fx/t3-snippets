@@ -1,5 +1,5 @@
 ---
-title: Get current domain 
+title: Get current domain in Fluid
 description: Return current domain in Fluid template (with optional page uid) with help of TypoScript
 tags: [getIndpEnv, typolink, typoscriptObjectPath, domain, url]
 date: 2017-05-24
