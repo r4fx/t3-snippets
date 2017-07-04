@@ -19,6 +19,8 @@
 }
 
 .list-inline--coma{
+  padding-right: 5px;
+  
   > li:not(:last-child):after{
     content: ',';
   }

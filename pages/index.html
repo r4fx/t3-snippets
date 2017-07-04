@@ -17,21 +17,21 @@ permalink: /
         <span class="middotDivider"></span>
 
         {% if snippet.author %}
-          <span>{{ snippet.author }}</span> <span class="middotDivider"></span>
-        {% endif %}
-
-        {% if snippet.tags %}
-          <ul class="list-inline list-inline--coma">
-            {% for tag in snippet.tags %}
-            <li><a href="{{ site.baseurl }}{{ site.tag_page }}?tag={{ tag }}" class="post-tag">{{ tag }}</a></li>
-            {% endfor %}
-          </ul>
+          <span>{{ snippet.author }}</span>
         {% endif %}
       </div>
 
       <h2 class="postPreview-title" itemprop="headline"><a itemprop="url" href="{{ site.baseurl }}{{ snippet.url }}">{{ snippet.title | smartify | strip_html | strip_newlines | escape_once }}</a></h2>
       {% if snippet.description and snippet.description != empty %}
         <p class="postPreview-excerpt" itemprop="description">{{ snippet.description | markdownify | strip_html | strip_newlines | truncate: 160 | escape_once }}</p>
+      {% endif %}
+  
+      {% if snippet.tags %}
+      <ul class="list-inline list-inline--coma">
+        {% for tag in snippet.tags %}
+        <li><a href="{{ site.baseurl }}{{ site.tag_page }}?tag={{ tag }}" class="post-tag">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
       {% endif %}
     </article>
 
