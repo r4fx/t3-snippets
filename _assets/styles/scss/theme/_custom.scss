@@ -63,3 +63,21 @@
     }
   }
 }
+
+.nav-bar .searchPage-form{
+  margin: 14px 0 0 50px;
+  
+  .input-group {
+    max-width: 240px;
+  }
+  
+  .form-control {
+    height: 36px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+  
+  .btn {
+    padding: 0 16px;
+  }
+}
