@@ -19,7 +19,7 @@ author: Rafał Brzeski
 </div>
 ~~~
 
-#### Time compare (for varibles use VHS extension)
+#### Time compare (for variables use VHS extension)
 ~~~ xml
 {namespace v=FluidTYPO3\Vhs\ViewHelpers}
 
