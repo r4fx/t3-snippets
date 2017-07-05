@@ -18,3 +18,26 @@ author: Rafał Brzeski
   foo
 </div>
 ~~~
+
+#### Time compare (for variables use VHS extension)
+~~~ xml
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
+<v:variable.set name="currentDate" value="{f:format.date(date: 'now' format: 'Y-m-d H:i:s')}" />
+<v:variable.set name="finishDate" value="{f:format.date(date: '{data.tx_mask_year}-{data.tx_mask_month}-{data.tx_mask_day} {data.tx_mask_hour}' format: 'Y-m-d H:i')}" />
+
+<f:comment>
+    <!-- use for debug date -->
+    current date: {currentDate}<br>
+    finish date: {finishDate}<br>
+</f:comment>
+
+<f:if condition="{currentDate} > {finishDate}">
+    <f:then>
+        foo
+    </f:then>
+    <f:else>
+        bar ({f:format.date(date: '{finishDate}' format: 'Y-m-d')}, {f:format.date(date: '{finishDate}' format: 'H:i')})
+    </f:else>
+</f:if>
+~~~
