@@ -3,12 +3,10 @@
 //
 
 .markdownBody {
-  font-family: $font-family-serif;
   font-size: 19px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.58;
-  letter-spacing: -.002em;
   word-wrap: break-word;
 
   @media (max-width: 767px) {
@@ -119,19 +117,11 @@
 
   h3 {
     margin-top: 47px;
-    margin-left: -2.25px;
-    font-family: $font-family-sans-serif;
     font-size: 30px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 1.15;
 
     @media (max-width: 767px) {
       margin-top: 39px;
-      margin-left: -1.75px;
       font-size: 25px;
-      line-height: 1.12;
-      letter-spacing: -.044em;
     }
 
     a {
@@ -149,7 +139,6 @@
   h4 {
     margin: 30px 0 15px;
     font-size: 18px;
-    font-weight: 400;
     text-transform: uppercase;
 
     a {
