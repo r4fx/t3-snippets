@@ -3,10 +3,10 @@ layout: none
 ---
 <feed xmlns="http://www.w3.org/2005/Atom">
 <script/>
-<link href="{{ site.baseurl | absolute_url}}/feed.xml" rel="self" type="application/atom+xml"/>
-<link href="{{ site.baseurl | absolute_url}}" rel="alternate" type="text/html"/>
+<link href="{{ page.baseurl | absolute_url}}/feed.xml" rel="self" type="application/atom+xml"/>
+<link href="{{ page.baseurl | absolute_url}}" rel="alternate" type="text/html"/>
 <updated>{{ site.time | date_to_xmlschema }}</updated>
-<id>{{ site.baseurl | absolute_url}}</id>
+<id>{{ page.baseurl | absolute_url}}</id>
 <title type="html">{{ site.name | xml_escape }}</title>
 <author>
     <name>{{ site.name | xml_escape }}</name>
@@ -15,7 +15,7 @@ layout: none
 {% for snippet in site.snippets reversed limit:10%}
 <entry>
     <title type="html">{{ snippet.title | smartify | xml_escape }}</title>
-    <link href="{{ site.baseurl }}{{ snippet.url }}" rel="alternate" type="text/html" title="{{ snippet.title | xml_escape }}"/>
+    <link href="{{ snippet.url | absolute_url }}" rel="alternate" type="text/html" title="{{ snippet.title | xml_escape }}"/>
     <published>{{ snippet.date | date_to_xmlschema }}</published>
     <id>{{ snippet.url | absolute_url}}</id>
     <author>
