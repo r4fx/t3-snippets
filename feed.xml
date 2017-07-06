@@ -1,0 +1,32 @@
+---
+layout: none
+---
+<feed xmlns="http://www.w3.org/2005/Atom">
+<script/>
+<link href="{{ site.baseurl }}/feed.xml" rel="self" type="application/atom+xml"/>
+<link href="{{ site.baseurl }}" rel="alternate" type="text/html"/>
+<updated>{{ site.time | date: '%d %B, %Y' }}</updated>
+<id>{{ site.baseurl }}</id>
+<title type="html">{{ site.name | xml_escape }}</title>
+<author>
+    <name>{{ site.name | xml_escape }}</name>
+    <uri>{{ site.author.uri }}</uri>
+</author>
+{% for snippet in site.snippets reversed limit:10%}
+<entry>
+    <title type="html">{{ snippet.title | xml_escape }}</title>
+    <link href="{{ site.baseurl }}{{ snippet.url }}" rel="alternate" type="text/html" title="{{ snippet.title | xml_escape }}"/>
+    <published>{{ snippet.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</published>
+    <id>{{ site.baseurl }}{{ snippet.url }}</id>
+    <content type="html" xml:base="{{ site.baseurl }}{{ snippet.url }}">
+        {{ snippet.content }}
+    </content>
+    <author>
+        <name>{{ snippet.author }}</name>
+    </author>
+    <summary type="html">
+        {{ snippet.description }}
+    </summary>
+</entry>
+{% endfor %}
+</feed>
