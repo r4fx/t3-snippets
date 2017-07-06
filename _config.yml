@@ -50,7 +50,6 @@ author:
 
 gems:
   - jemoji
-  - jekyll-feed
   - jekyll-gist
   - jekyll-github-metadata
   - jekyll-paginate
