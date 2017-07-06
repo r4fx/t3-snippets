@@ -18,9 +18,6 @@ layout: none
     <link href="{{ site.baseurl }}{{ snippet.url }}" rel="alternate" type="text/html" title="{{ snippet.title | xml_escape }}"/>
     <published>{{ snippet.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</published>
     <id>{{ site.baseurl }}{{ snippet.url }}</id>
-    <content type="html" xml:base="{{ site.baseurl }}{{ snippet.url }}">
-        {{ snippet.content | xml_escape }}
-    </content>
     <author>
         <name>{{ snippet.author }}</name>
     </author>
