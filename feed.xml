@@ -4,7 +4,7 @@ layout: none
 <feed xmlns="http://www.w3.org/2005/Atom" {% if site.lang %}xml:lang="{{ site.lang }}"{% endif %}>
 <generator uri="https://jekyllrb.com/" version="{{ jekyll.version }}">Jekyll</generator>
 <link href="{{ site.url }}{{ site.baseurl }}/feed.xml" rel="self" type="application/atom+xml"/>
-<link href="{{ site.baseurl | absolute_url}}" rel="alternate" type="text/html"/>
+<link href="{{ site.url }}{{ site.baseurl }}" rel="alternate" type="text/html"/>
 <updated>{{ site.time | date_to_xmlschema }}</updated>
 <id>{{ site.url }}{{ site.baseurl }}</id>
 <title type="html">{{ site.title | xml_escape }}</title>
