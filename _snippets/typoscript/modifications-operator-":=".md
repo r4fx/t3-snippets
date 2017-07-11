@@ -1,5 +1,5 @@
 ---
-title: Modifications operator ":="
+title: Modifications operator '':=''
 description: A way to manage the values entered in TypoScript
 tags: [addToList, removeFromList, prependString, appendString, removeString, replaceString, uniqueList, reverseList, sortList]
 date: 2013-09-17
