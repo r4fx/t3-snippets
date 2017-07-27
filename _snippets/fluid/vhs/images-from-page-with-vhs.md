@@ -6,12 +6,14 @@ date: 2016-04-11
 author: Rafał Brzeski
 ---
 
-~~~ xml
-// Przykłady użycia https://github.com/FluidTYPO3/vhs/pull/395
- 
-<v:resource.record.fal table="pages" field="media" uid="{data.uid}" as="resources">
-    <f:for each="{resources}" as="resource">
-        <v:resource.image identifier="{resource.id}" class="object-fit" width="1280c" height="370c"/>
-    </f:for>
-</v:resource.record.fal>
+~~~ xml 
+<v:page.resources.fal uid="{data.uid}" as="resources">
+ <f:for each="{resources}" as="resource">
+  <v:resource.image identifier="{resource.id}" width="880c" height="175c" alt="{data.title}"/>
+ </f:for>
+</v:page.resources.fal>
+
+lub
+
+<v:resource.image identifier="{v:page.resources.fal(uid: '9') -> v:iterator.extract(key: 'id')}" />
 ~~~
