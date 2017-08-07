@@ -50,7 +50,8 @@ lib.langMenu {
             linkWrap = <li class="no-trans">|</li>
             stdWrap.typolink {
                 parameter >
-                // Link to home page, or dedicated page for other language
+                
+                // Optional link to home page, or dedicated page for other language
                 parameter = 1
             }
         }
