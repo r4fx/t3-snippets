@@ -6,6 +6,7 @@ date: 2016-01-22
 author: Rafał Brzeski
 ---
 
+~~~ js
 lib.langMenu = HMENU
 lib.langMenu {
     special = language
@@ -62,3 +63,4 @@ lib.langMenu {
         }
     }
 }
+~~~
