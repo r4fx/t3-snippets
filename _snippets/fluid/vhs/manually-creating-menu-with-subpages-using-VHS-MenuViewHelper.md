@@ -18,7 +18,7 @@ author: Rafał Brzeski
   <f:comment>
     Check all properties by debugging object
     ========================================
-    <f:debug title="all">{menu}</f:debug>
+    <f:debug title="menu">{menu}</f:debug>
   </f:comment>
 
   <ul class="navbar-nav ml-auto">
