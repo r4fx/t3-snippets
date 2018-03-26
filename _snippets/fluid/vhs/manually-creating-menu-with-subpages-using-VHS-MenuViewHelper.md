@@ -1,6 +1,6 @@
 ---
-title: Page teaser on Fluid and VHS
-description: Manually creating menu with subpages using VHS MenuViewHelper.
+title: Manually creating menu with subpages using VHS MenuViewHelper
+description: v:menu.list with f:for for first and next level menu
 tags: [vhs, menu, hasSubpages]
 date: 2018-03-26
 author: Rafał Brzeski
