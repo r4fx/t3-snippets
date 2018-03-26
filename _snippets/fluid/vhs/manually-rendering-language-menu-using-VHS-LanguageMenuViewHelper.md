@@ -10,7 +10,6 @@ author: Rafał Brzeski
 
 ~~~ xml
 <v:page.languageMenu
-  class="list-inline"
   defaultLanguageLabel="EN"
   defaultIsoFlag="en"
   as="menu">
