@@ -11,7 +11,6 @@ author: Rafał Brzeski
 ~~~ xml
 <v:menu.list
   pages="{settings.nav.mainNav}"
-  class="navbar-nav ml-auto"
   classActive=""
   classCurrent="active"
   classHasSubpages="has-sub-menu"
