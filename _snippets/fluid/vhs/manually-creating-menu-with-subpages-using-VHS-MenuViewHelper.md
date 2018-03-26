@@ -6,6 +6,8 @@ date: 2018-03-26
 author: Rafał Brzeski
 ---
 
+ViewHelper reference https://fluidtypo3.org/viewhelpers/vhs/master/Menu/ListViewHelper.html
+
 ~~~ xml
 <v:menu.list
   pages="{settings.nav.mainNav}"
