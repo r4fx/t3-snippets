@@ -1,5 +1,5 @@
 ---
-title: Manually creating menu with subpages using VHS MenuViewHelper
+title: Manually rendering menu with subpages using VHS MenuViewHelper
 description: v:menu.list with f:for for first and next level menu
 tags: [vhs, menu, hasSubpages]
 date: 2018-03-26
