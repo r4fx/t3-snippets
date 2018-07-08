@@ -1,6 +1,6 @@
 ---
 title: Set title tag in meta section directly in Fluid file
-description: This very simple method allows you to set 'title' tag in fluid without hassle
+description: This very simple method allows you to set a 'title' tag in fluid without hassle
 tags: [HeaderAssets, fluid, meta, title, vhs]
 date: 2018-07-08
 author: Rafał Brzeski
