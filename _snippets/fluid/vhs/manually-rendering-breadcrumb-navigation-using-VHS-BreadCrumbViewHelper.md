@@ -26,7 +26,7 @@ author: Rafał Brzeski
         <f:for each="{menu}" as="menuItem">
             <li class="list-inline-item {menuItem.class}">
                 <f:link.page
-                  pageUid="{menuItem.link}">
+                  pageUid="{menuItem.uid}">
                     {menuItem.title}
                 </f:link.page>
             </li>
